@@ -22,7 +22,7 @@
 
 - Na implementação é feita uma busca local calculando sempre a heurística local para uma determinada rainha. O objetivo é obter as melhores heurísticas locais e comparar elas com a heurística global, se tiver uma heurística local com menos ataques ou igual a heurística global é feito a mudança de estado.
 
--Este procedimento se repete até que se obtenha heurística global igual a zero ou se a heuristica global depois de três iterações permanecer igual, isto significa que pra todas as rainhas o algoritmo chegou no máximo da sua busca local e não conseguirá encontrar heurística local melhor que a atual, portanto neste caso o algorimo finaliza com falha.
+- Este procedimento se repete até que se obtenha heurística global igual a zero ou se a heuristica global depois de três iterações permanecer igual, isto significa que pra todas as rainhas o algoritmo chegou no máximo da sua busca local e não conseguirá encontrar heurística local melhor que a atual, portanto neste caso o algorimo finaliza com falha.
 
 ### Genetic (Genético)
 
