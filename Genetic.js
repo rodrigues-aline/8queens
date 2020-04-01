@@ -1,3 +1,9 @@
+/**
+ * Execute Algorithm 8 Queens Problem (UNIFESP - PPGCC)
+ * Professor: Fabio Faria
+ * Author:    Aline Rodrigues
+ * Created:   2018-09-30
+ **/
 
 /**
  * Class Genetic
@@ -9,8 +15,8 @@
 function Genetic(id) {
     this.id           = id;
     this.population   = [];
-    this.t_population = 800;
-    this.selection    = 5;
+    this.t_population = 200;
+    this.selection    = 4;
     this.crossover    = [];
     this.mutation     = [];
 }

@@ -6,26 +6,26 @@
 
  .board {
  	border: 1px solid #BCBCBC; 
- 	width:250px;  
- 	margin:auto auto;
+ 	width: 250px;  
+ 	margin: auto auto;
  	margin-top: 10px;
  }
 
  .search {
- 	text-align:center; 
+ 	text-align: center; 
  	margin-top: 15px;
  	padding: 0px;
  }
 
  .manage_search {
- 	text-align:left; 
+ 	text-align: left; 
  	margin-top: 10px;
  }
 
  .info_search {
  	width: 250px; 
  	margin: auto auto; 
- 	margin-top:10px;
+ 	margin-top: 10px;
  }
 
  .control_search { 
@@ -39,7 +39,7 @@
 
  .info_item_search {
 	padding: 5px;
-	font-size:12px;
+	font-size: 12px;
  }
 
  .success {
@@ -59,3 +59,24 @@
     float: left;
     margin-top: 4px;
  }
+
+/* width */
+::-webkit-scrollbar {
+	width: 5px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+	border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #343a40; 
+	border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: gray; 
+}

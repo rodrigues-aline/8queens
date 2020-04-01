@@ -80,6 +80,7 @@ class Queens {
 		this.minutes  = 0;
 		this.secounds = 0;
 
+		// Set threads to run searches
 		this.path     = 'file://'+window.location.pathname.replace('8Queens.html', '');
 		this.threads_search = [ {'search'  : new Worker(URL.createObjectURL(new Blob(['importScripts("'+this.path+'/HillClimbing.js")'], {type: 'text/javascript'}))),
 								'id'       : 'HC',
@@ -119,7 +120,8 @@ class Queens {
 			$('#board_' + this.threads_search[s]['id']).html(board);
 	
 			this.result.push([]);
-	
+
+			// Set events threads searches
 			this.threads_search[s]['search'].onmessage = event => {
 				let data = event.data
 				switch (data['command']) {
@@ -152,6 +154,7 @@ class Queens {
 
 	setTime = (obj_in) => {
 		setInterval(() => {
+			// Count time
 			if (obj_in.secounds == 59) {
 				obj_in.secounds = 0;
 				if (obj_in.minutes == 59) {
@@ -161,8 +164,11 @@ class Queens {
 				else obj_in.minutes += 1;
 			}
 			else obj_in.secounds += 1;
-	
+
+			// Flag all searches finished
 			let all_finished = true;
+
+			// Update searches run time
 			for (let s in obj_in.threads_search) {
 				if (!obj_in.threads_search[s]['finished']) {
 					all_finished = false;
@@ -173,12 +179,14 @@ class Queens {
 				}
 			}
 			if (all_finished) {
+				// Run once
 				if (!obj_in.start_many) {
 					$('#start').attr('disabled', false);
 					$('#stop').attr('disabled', true);
 					$('#restart').attr('disabled', true);
 					obj_in.stopSearches();
 				}
+				// Run many times
 				else {
 					$('#table_result').show();
 					let html = '';
@@ -228,6 +236,7 @@ class Queens {
 		// Start searches in threads
 		for (let s in this.threads_search) {
 			if (!this.threads_search[s]['finished']) {
+				// Send command to thread
 				this.threads_search[s]['search'].postMessage({'command'    : 'start', 
 															  'speed'      :  $('#speed').val(),
 															  'start_many' : this.start_many,
@@ -243,6 +252,7 @@ class Queens {
 		while (id--) window.clearTimeout(id);
 		
 		for (let s in this.threads_search) {
+			// Send command to thread
 			this.threads_search[s]['search'].postMessage({'command' : 'stop'});
 		}	
 	}
@@ -266,6 +276,8 @@ class Queens {
 			$('#steps_' + this.threads_search[s]['id']).html('Steps: 0');
 			if (this.threads_search[s]['id'] == 'HC') this.setQueens(this.threads_search[s]['id'], this.shuffle, 'Steps: 0');
 			if (this.threads_search[s]['id'] == 'CSP') this.setQueens(this.threads_search[s]['id'], [-1,-1,-1,-1,-1,-1,-1,-1], 'Steps: 0');
+			
+			// Send command to thread
 			this.threads_search[s]['search'].postMessage({'command'    : 'restart', 
 														  'matrix'     : this.matrix, 
 														  'shuffle'    : this.shuffle,
@@ -277,6 +289,7 @@ class Queens {
 
 	changeSpeed = speed => {
 		for (let s in this.threads_search) {
+			// Send command to thread
 			this.threads_search[s]['search'].postMessage({'command' : 'speed', 
 														  'speed'   :  speed });
 		}

@@ -1,4 +1,11 @@
 /**
+ * Execute Algorithm 8 Queens Problem (UNIFESP - PPGCC)
+ * Professor: Fabio Faria
+ * Author:    Aline Rodrigues
+ * Created:   2018-09-30
+ **/
+
+/**
  * Class Hill Climbing
  *
  * this.queens = [0, 0, 0, 0, 0, 0, 0, 0]
