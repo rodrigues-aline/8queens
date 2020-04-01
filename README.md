@@ -32,8 +32,8 @@
 
 - Parametros definidos: 
     - 20% da população é selecionada para a evolução da proxima geração
-    - São geradas 5 gerações portanto executadas 4 evoluções
-    - Cada população corresponde a 800 individuos
+    - São geradas 4 gerações portanto executadas 3 evoluções
+    - Cada população corresponde a 200 individuos
 
 - Inicia-se com o tabuleiro vazio, a primeira população é definida aleatoriamente, em seguida é feito o cálculo da heurística para cada indivíduo e escolhido os 20% melhores (menor números de rainhas que se atacam), é executado a evolução utilizando cruzamento e mutação.
     - **Cruzamento**: cada par de indivíduo é cruzado de 10 formas diferentes gerando sempre dois filhos, portanto cada par de indivíduos geram 20 filhos.
